@@ -54,28 +54,45 @@ PostgRESTが実行されているターミナルで、Ctrl + Cを押してプロ
 https://postgrest.org/en/stable/integrations/systemd.html  
 
 ### PostgRESTの設定ファイルの作成  
-# postgrest.confの設定を参照  
-#/etc/postgrest/config へ設置  
+#postgrest.confのコピー  
+sudo su  
+#一番最初だけディレクトリ作成
+mkdir -p /etc/postgrest/config  
+cp -r postgrest.conf /etc/postgrest/config  
+#postgrestのコピー  
+cp postgrest /bin/
+
 ### サービスファイルの作成  
 #/etc/systemd/system/postgrest.service　へ設置  
+nano /etc/systemd/system/postgrest.service  
+
+######################
 [Unit]  
 Description=REST API for any PostgreSQL database  
 After=postgresql.service  
 
 [Service]  
-User=postgrest  
-Group=postgrest  
-ExecStart=/bin/postgrest /etc/postgrest/config  
-ExecReload=/bin/kill -SIGUSR1 $MAINPID  
+ExecStart=/bin/postgrest /etc/postgrest/config/postgrest.conf   
+Restart=always
 
 [Install]  
 WantedBy=multi-user.target  
+######################
+### デーモンの登録  
+#デーモンの登録  
+systemctl enable postgrest  
+#デーモンのスタート  
+systemctl start postgrest  
+#状態の確認  
+systemctl status postgrest  
 
 ## 強制停止  
 調子が悪い時は強制停止。。。  
 私の使っている激安、貧弱サーバーの場合はお世話になり事が多い。。。  
+#PIDの確認
 pgrep postgrest  
-kill <ID>  
+#確認したPIDを停止
+kill PID  
 
 それでもダメならPostgreSQLを再起動  
 systemctl restart postgresql  
