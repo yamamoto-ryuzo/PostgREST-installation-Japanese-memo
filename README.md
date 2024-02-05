@@ -28,7 +28,7 @@ nano postgrest.conf
 #your_database: 接続先のデータベース名  
 db-uri = "postgres://your_username:your_password@localhost:5432/your_database"  
 #PostgRESTが使用するデータベースのスキーマを指定します。  
-#db-schemas = "<your_exposed_schema>"
+#db-schemas = "<your_exposed_schema>"  
 #スキーマ名 "public" の例  
 db-schema = "public"  
 #匿名ユーザーのロール名を指定します。  
@@ -89,9 +89,9 @@ systemctl status postgrest
 ## 強制停止  
 調子が悪い時は強制停止。。。  
 私の使っている激安、貧弱サーバーの場合はお世話になり事が多い。。。  
-#PIDの確認
+#PIDの確認  
 pgrep postgrest  
-#確認したPIDを停止
+#確認したPIDを停止  
 kill PID  
 
 それでもダメならPostgreSQLを再起動  
