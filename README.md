@@ -56,7 +56,7 @@ https://postgrest.org/en/stable/integrations/systemd.html
 ### PostgRESTの設定ファイルの作成  
 #postgrest.confのコピー  
 sudo su  
-#一番最初だけディレクトリ作成
+#一番最初だけディレクトリ作成  
 mkdir -p /etc/postgrest/config  
 cp -r postgrest.conf /etc/postgrest/config  
 #postgrestのコピー  
