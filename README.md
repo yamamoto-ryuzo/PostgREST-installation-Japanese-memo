@@ -66,7 +66,7 @@ cp postgrest /bin/
 #/etc/systemd/system/postgrest.service　へ設置  
 nano /etc/systemd/system/postgrest.service  
 
-######################
+######################  
 [Unit]  
 Description=REST API for any PostgreSQL database  
 After=postgresql.service  
