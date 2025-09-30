@@ -1,3 +1,5 @@
+# AI先生に聞いたほうが早い時代になったため閉鎖
+
 # PostgREST-installation-Japanese-memo  
 
 ## インストール  
